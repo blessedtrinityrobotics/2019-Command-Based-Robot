@@ -27,8 +27,13 @@ public class OI {
   private XboxController driver = new XboxController(RobotMap.DRIVER_CONTROLLER);
   private XboxController operator = new XboxController(RobotMap.OPERATOR_CONTROLLER);
 
+
   public double getAxis(int axis){
     return driver.getRawAxis(axis);
+  }
+
+  public double getAxisOperator(int axis){
+    return operator.getRawAxis(axis);
   }
 
 

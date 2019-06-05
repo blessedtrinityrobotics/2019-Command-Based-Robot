@@ -24,13 +24,12 @@ public class RobotMap {
   public static final int MOTOR_RIGHT_SLAVE_2 = 7;
   
   public static final int DRIVER_CONTROLLER = 0;
-  public static final int OPERATOR_CONTROLLER = 1;
-  
+  public static final int OPERATOR_CONTROLLER = 4;
+
 
 
   public static final double turningPower = 0.5;
   
-
 
   public static final int leftStickX       = 0;  
   public static final int leftStickY       = 1;
@@ -38,6 +37,15 @@ public class RobotMap {
   public static final int rightTriggerAxis = 3;
   public static final int rightStickX      = 4;
   public static final int rightStickY      = 5;
+
+
+
+
+  public static final int ELEV_RIGHT_SLAVE = 10;
+  public static final int ELEV_RIGHT_MASTER = 9;
+  public static final int ELEV_LEFT_MASTER = 8;
+  public static final int ELEV_LEFT_SLAVE = 11;
+
 
   // For example to map the left and right motors, you could define the
   // following variables to use with your drivetrain subsystem.
