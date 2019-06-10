@@ -24,7 +24,7 @@ public class RobotMap {
   public static final int MOTOR_RIGHT_SLAVE_2 = 7;
   
   public static final int DRIVER_CONTROLLER = 0;
-  public static final int OPERATOR_CONTROLLER = 4;
+  public static final int OPERATOR_CONTROLLER = 1;
 
 
 
@@ -41,8 +41,8 @@ public class RobotMap {
 
 
 
-  public static final int ELEV_RIGHT_SLAVE = 10;
   public static final int ELEV_RIGHT_MASTER = 9;
+  public static final int ELEV_RIGHT_SLAVE = 10;
   public static final int ELEV_LEFT_MASTER = 8;
   public static final int ELEV_LEFT_SLAVE = 11;
 

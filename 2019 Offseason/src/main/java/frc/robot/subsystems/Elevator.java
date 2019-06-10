@@ -22,11 +22,11 @@ import frc.robot.commands.ElevatorMove;
  */
 public class Elevator extends Subsystem {
 
-  private TalonSRX elevLeftMaster = new TalonSRX(RobotMap.ELEV_LEFT_MASTER);
-  private VictorSPX elevLeftSlave = new VictorSPX(RobotMap.ELEV_LEFT_SLAVE);
+   private TalonSRX elevLeftMaster = new TalonSRX(RobotMap.ELEV_LEFT_MASTER);
+   private VictorSPX elevLeftSlave = new VictorSPX(RobotMap.ELEV_LEFT_SLAVE);
 
-  private TalonSRX elevRightMaster = new TalonSRX(RobotMap.ELEV_RIGHT_MASTER);
-  private VictorSPX elevRightSlave = new VictorSPX(RobotMap.ELEV_RIGHT_SLAVE);
+   private TalonSRX elevRightMaster = new TalonSRX(RobotMap.ELEV_RIGHT_MASTER);
+   private VictorSPX elevRightSlave = new VictorSPX(RobotMap.ELEV_RIGHT_SLAVE);
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
@@ -35,21 +35,20 @@ public class Elevator extends Subsystem {
     // Set the default command for a subsystem here.
     setDefaultCommand(new ElevatorMove());
 
-    elevLeftMaster.setNeutralMode(NeutralMode.Brake);
-    elevLeftSlave.setNeutralMode(NeutralMode.Brake);
+    elevLeftMaster.setInverted(false);
+    elevLeftSlave.setInverted(true);
 
-    elevRightMaster.setNeutralMode(NeutralMode.Brake);
-    elevRightSlave.setNeutralMode(NeutralMode.Brake);
-    
+    elevRightMaster.setInverted(false);
+    elevRightSlave.setInverted(true);
   }
 
-  public void moveElevLeft(double setPower){
+  public void setElevLeft(double setPower){
     elevLeftMaster.set(ControlMode.PercentOutput, setPower);
     elevLeftSlave.follow(elevLeftMaster);
   }
 
-  public void moveElevRight(double setPower){
-    elevRightMaster.set(ControlMode.PercentOutput, setPower);
+  public void setElevRight(double setPower){
+    elevRightMaster.set(ControlMode.PercentOutput, -setPower);
     elevRightSlave.follow(elevRightMaster);
   }
   

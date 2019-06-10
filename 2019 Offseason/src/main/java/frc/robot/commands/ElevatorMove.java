@@ -31,10 +31,9 @@ public class ElevatorMove extends Command {
   @Override
   protected void execute() {
     double leftStickY = Robot.m_oi.getAxisOperator(RobotMap.leftStickY);
-    double rightStickY = Robot.m_oi.getAxisOperator(RobotMap.rightStickY);
 
-    Robot.elevTrain.moveElevLeft(leftStickY);
-    Robot.elevTrain.moveElevRight(rightStickY);
+    Robot.elevTrain.setElevLeft(leftStickY);
+    Robot.elevTrain.setElevRight(leftStickY);
   }
   
 
