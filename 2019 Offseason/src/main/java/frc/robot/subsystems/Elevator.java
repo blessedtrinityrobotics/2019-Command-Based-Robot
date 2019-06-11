@@ -30,16 +30,17 @@ public class Elevator extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
-  @Override
-  public void initDefaultCommand() {
-    // Set the default command for a subsystem here.
-    setDefaultCommand(new ElevatorMove());
-
+  public Elevator() {
     elevLeftMaster.setInverted(false);
     elevLeftSlave.setInverted(true);
 
     elevRightMaster.setInverted(false);
     elevRightSlave.setInverted(true);
+  }
+  @Override
+  public void initDefaultCommand() {
+    // Set the default command for a subsystem here.
+    setDefaultCommand(new ElevatorMove());
   }
 
   public void setElevLeft(double setPower){
