@@ -10,6 +10,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.Elevator;
+import frc.robot.subsystems.Wristtrain;
 //import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 // import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -28,6 +29,7 @@ public class Robot extends TimedRobot {
 
   public static Drivetrain driveTrain = new Drivetrain();
   public static Elevator elevTrain = new Elevator();
+  public static Wristtrain wrisTrain = new Wristtrain();
   public static OI m_oi;
 /*
   Command m_autonomousCommand;
