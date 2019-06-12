@@ -28,14 +28,14 @@ public class Wristtrain extends Subsystem {
   private  TalonSRX  wristMaster  = new TalonSRX  (RobotMap.WRIST_MASTER);
   private  VictorSPX wristSlave   = new VictorSPX (RobotMap.WRIST_SLAVE);
 
+  public Wristtrain() {
+    wristMaster.setInverted(false);
+    wristSlave.setInverted(true);
+  }
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     setDefaultCommand(new wristDrive());
-
-    wristMaster.setInverted(false);
-    wristSlave.setInverted(true);
-
   }
 
   public void setWristPower(double power){

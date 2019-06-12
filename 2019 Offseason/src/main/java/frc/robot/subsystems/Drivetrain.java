@@ -31,10 +31,7 @@ public class Drivetrain extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
-  @Override
-  public void initDefaultCommand() {
-    // Set the default command for a subsystem here.
-    setDefaultCommand(new TankDrive());
+  public Drivetrain(){
     masterLeft.setInverted(false);
     slaveLeft1.setInverted(false);
     slaveLeft2.setInverted(false);
@@ -52,6 +49,12 @@ public class Drivetrain extends Subsystem {
     slaveRight1.setNeutralMode(NeutralMode.Brake);
     slaveRight2.setNeutralMode(NeutralMode.Brake);
 
+  }
+  @Override
+  public void initDefaultCommand() {
+    // Set the default command for a subsystem here.
+    setDefaultCommand(new TankDrive());
+    
   }
 
   public void setLeftMotors(double setPower){
