@@ -31,6 +31,9 @@ public class Wrist extends Subsystem {
   public Wrist() {
     wristMaster.setInverted(false);
     wristSlave.setInverted(true);
+    wristMaster.setNeutralMode(NeutralMode.Brake);
+    wristSlave.setNeutralMode(NeutralMode.Brake);
+
   }
   @Override
   public void initDefaultCommand() {
