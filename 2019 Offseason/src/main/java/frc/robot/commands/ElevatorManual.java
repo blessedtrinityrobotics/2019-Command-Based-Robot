@@ -7,19 +7,17 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.GenericHID;
-import edu.wpi.first.wpilibj.Joystick;
+
 import edu.wpi.first.wpilibj.command.Command; 
 import frc.robot.Robot;
-import frc.robot.subsystems.Elevator;
 import frc.robot.RobotMap;
-import frc.robot.OI;;
 
-public class ElevatorMove extends Command {
-  public ElevatorMove() {
+
+public class ElevatorManual extends Command {
+  public ElevatorManual() {
     // test comment
     // Use requires() here to declare subsystem dependencies
-    requires(Robot.elevTrain);
+    requires(Robot.elevator);
   }
 
   // Called just before this Command runs the first time
@@ -32,8 +30,8 @@ public class ElevatorMove extends Command {
   protected void execute() {
     double leftStickOperatorY = Robot.m_oi.getAxisOperator(RobotMap.leftStickY);
 
-    Robot.elevTrain.setElevLeft(leftStickOperatorY);
-    Robot.elevTrain.setElevRight(leftStickOperatorY);
+    Robot.elevator.setElevLeft(leftStickOperatorY);
+    Robot.elevator.setElevRight(leftStickOperatorY);
   }
   
 

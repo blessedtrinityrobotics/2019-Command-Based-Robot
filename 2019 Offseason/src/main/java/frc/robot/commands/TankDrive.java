@@ -9,9 +9,7 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command; 
 import frc.robot.Robot;
-import frc.robot.subsystems.Drivetrain;
 import frc.robot.RobotMap;
-import frc.robot.OI;;
 
 public class TankDrive extends Command {
   public TankDrive() {
@@ -29,12 +27,12 @@ public class TankDrive extends Command {
   @Override
   protected void execute() {
     //Get All Axis Values
-    double leftStickY = Robot.m_oi.getAxis(RobotMap.leftStickY);
+    //double leftStickY = Robot.m_oi.getAxis(RobotMap.leftStickY);
     double rightStickY = Robot.m_oi.getAxis(RobotMap.rightStickY);
     double leftStickX = Robot.m_oi.getAxis(RobotMap.leftStickX);
     //double rightStickX = Robot.m_oi.getDriverRawAxis(RobotMap.rightStickX);
-    double leftTrigger = Robot.m_oi.getAxis(RobotMap.leftTriggerAxis);
-    double rightTrigger = Robot.m_oi.getAxis(RobotMap.rightTriggerAxis);
+    //double leftTrigger = Robot.m_oi.getAxis(RobotMap.leftTriggerAxis);
+    //double rightTrigger = Robot.m_oi.getAxis(RobotMap.rightTriggerAxis);
 /*
     // Tank Drive Options
       // Regular Tank Drive

@@ -9,15 +9,13 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command; 
 import frc.robot.Robot;
-import frc.robot.subsystems.Wristtrain;
 import frc.robot.RobotMap;
-import frc.robot.OI;;
 
-public class wristDrive extends Command {
-  public wristDrive() {
+public class WristManual extends Command {
+  public WristManual() {
     // test comment
     // Use requires() here to declare subsystem dependencies
-    requires(Robot.wrisTrain);
+    requires(Robot.wrist);
   }
 
   // Called just before this Command runs the first time
@@ -31,7 +29,7 @@ public class wristDrive extends Command {
     //Get All Axis Values
     
     double rightStickY = Robot.m_oi.getAxisOperator(RobotMap.rightStickY);
-    Robot.wrisTrain.setWristPower(rightStickY);
+    Robot.wrist.setWristPower(rightStickY);
 
   }
   

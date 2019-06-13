@@ -14,13 +14,13 @@ import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
-import frc.robot.commands.wristDrive;
+import frc.robot.commands.WristManual;
 
 
 /**
  * Add your docs here.
  */
-public class Wristtrain extends Subsystem {
+public class Wrist extends Subsystem {
   
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
@@ -28,14 +28,14 @@ public class Wristtrain extends Subsystem {
   private  TalonSRX  wristMaster  = new TalonSRX  (RobotMap.WRIST_MASTER);
   private  VictorSPX wristSlave   = new VictorSPX (RobotMap.WRIST_SLAVE);
 
-  public Wristtrain() {
+  public Wrist() {
     wristMaster.setInverted(false);
     wristSlave.setInverted(true);
   }
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
-    setDefaultCommand(new wristDrive());
+    setDefaultCommand(new WristManual());
   }
 
   public void setWristPower(double power){
