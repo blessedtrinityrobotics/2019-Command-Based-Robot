@@ -28,11 +28,11 @@ public class TankDrive extends Command {
   protected void execute() {
     //Get All Axis Values
     //double leftStickY = Robot.m_oi.getAxis(RobotMap.leftStickY);
-    double rightStickY = Robot.m_oi.getAxis(RobotMap.rightStickY);
-    double leftStickX = Robot.m_oi.getAxis(RobotMap.leftStickX);
-    //double rightStickX = Robot.m_oi.getDriverRawAxis(RobotMap.rightStickX);
-    //double leftTrigger = Robot.m_oi.getAxis(RobotMap.leftTriggerAxis);
-    //double rightTrigger = Robot.m_oi.getAxis(RobotMap.rightTriggerAxis);
+    double rightStickY = Robot.m_oi.getAxis(RobotMap.RIGHT_STICK_Y);
+    double leftStickX = Robot.m_oi.getAxis(RobotMap.LEFT_STICK_X);
+    //double rightStickX = Robot.m_oi.getDriverRawAxis(RobotMap.RIGHT_STICK_X);
+    //double leftTrigger = Robot.m_oi.getAxis(RobotMap.LEFT_TRIGGER_AXIS);
+    //double rightTrigger = Robot.m_oi.getAxis(RobotMap.RIGHT_TRIGGER_AXIS);
 /*
     // Tank Drive Options
       // Regular Tank Drive
@@ -46,32 +46,32 @@ public class TankDrive extends Command {
     */
     // Split Arcade Drive Options  
       // Regular Split Arcade
-      Robot.driveTrain.setLeftMotors(rightStickY - leftStickX * RobotMap.turningPower);
-      Robot.driveTrain.setRightMotors(rightStickY + leftStickX * RobotMap.turningPower);
+      Robot.driveTrain.setLeftMotors(rightStickY - leftStickX * RobotMap.TURNING_POWER);
+      Robot.driveTrain.setRightMotors(rightStickY + leftStickX * RobotMap.TURNING_POWER);
   /*
       // Exponential Drive Split Arcade
-      Robot.driveTrain.setLeftMotors((rightStickY * Math.abs(rightStickY)) + (leftStickX * RobotMap.turningPower));
-      Robot.driveTrain.setRightMotors((rightStickY * Math.abs(rightStickY)) - (leftStickX * RobotMap.turningPower));
+      Robot.driveTrain.setLeftMotors((rightStickY * Math.abs(rightStickY)) + (leftStickX * RobotMap.TURNING_POWER));
+      Robot.driveTrain.setRightMotors((rightStickY * Math.abs(rightStickY)) - (leftStickX * RobotMap.TURNING_POWER));
     
       // Exponential Drive and Turn Split Arcade 
-      Robot.driveTrain.setLeftMotors((rightStickY * Math.abs(rightStickY)) + ((leftStickX * Math.abs(leftStickX)) * RobotMap.turningPower));
-      Robot.driveTrain.setRightMotors((rightStickY * Math.abs(rightStickY)) - ((leftStickX * Math.abs(leftStickX)) * RobotMap.turningPower));
+      Robot.driveTrain.setLeftMotors((rightStickY * Math.abs(rightStickY)) + ((leftStickX * Math.abs(leftStickX)) * RobotMap.TURNING_POWER));
+      Robot.driveTrain.setRightMotors((rightStickY * Math.abs(rightStickY)) - ((leftStickX * Math.abs(leftStickX)) * RobotMap.TURNING_POWER));
     
     // GTA Drive Options
       // Regular GTA Drive
       double triggerValue1 = -rightTrigger + leftTrigger;
-      double turnValue1 = leftStickX * RobotMap.turningPower;
+      double turnValue1 = leftStickX * RobotMap.TURNING_POWER;
       Robot.driveTrain.setLeftMotors(triggerValue1 - turnValue1);
       Robot.driveTrain.setRightMotors(triggerValue1 + turnValue1);
       
       // Exponential Drive GTA Drive
       double triggerValue2 = (rightTrigger - leftTrigger) * Math.abs((rightTrigger - leftTrigger));
-      double turnValue2 = leftStickX * RobotMap.turningPower;
+      double turnValue2 = leftStickX * RobotMap.TURNING_POWER;
       Robot.driveTrain.setLeftMotors(triggerValue2 + turnValue2);
       Robot.driveTrain.setRightMotors(triggerValue2 - turnValue2);
       // Exponential Drive and Turn GTA Drive
       double triggerValue3 = (rightTrigger - leftTrigger) * Math.abs((rightTrigger - leftTrigger));
-      double turnValue3 = (leftStickX * Math.abs(leftStickX)) * RobotMap.turningPower;
+      double turnValue3 = (leftStickX * Math.abs(leftStickX)) * RobotMap.TURNING_POWER;
       Robot.driveTrain.setLeftMotors(triggerValue3 + turnValue3);
       Robot.driveTrain.setRightMotors(triggerValue3 - turnValue3);
   

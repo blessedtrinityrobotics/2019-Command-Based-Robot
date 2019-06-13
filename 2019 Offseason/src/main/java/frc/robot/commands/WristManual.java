@@ -28,7 +28,7 @@ public class WristManual extends Command {
   protected void execute() {
     //Get All Axis Values
     
-    double rightStickY = Robot.m_oi.getAxisOperator(RobotMap.rightStickY);
+    double rightStickY = Robot.m_oi.getAxisOperator(RobotMap.RIGHT_STICK_Y);
     Robot.wrist.setWristPower(rightStickY);
 
   }

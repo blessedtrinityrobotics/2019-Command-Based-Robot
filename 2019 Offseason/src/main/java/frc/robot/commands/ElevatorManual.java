@@ -28,7 +28,7 @@ public class ElevatorManual extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    double leftStickOperatorY = Robot.m_oi.getAxisOperator(RobotMap.leftStickY);
+    double leftStickOperatorY = Robot.m_oi.getAxisOperator(RobotMap.LEFT_STICK_Y);
 
     Robot.elevator.setElevLeft(leftStickOperatorY);
     Robot.elevator.setElevRight(leftStickOperatorY);
