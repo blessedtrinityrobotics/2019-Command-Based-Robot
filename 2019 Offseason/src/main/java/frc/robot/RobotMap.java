@@ -50,6 +50,12 @@ public class RobotMap {
   public static final int WRIST_MASTER = 13;
   public static final int WRIST_SLAVE = 12; 
 
+  public static final int INTAKE_MASTER = 14;
+
+  
+
+
+
 
   // For example to map the left and right motors, you could define the
   // following variables to use with your drivetrain subsystem.
