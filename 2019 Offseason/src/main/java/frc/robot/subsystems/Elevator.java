@@ -14,7 +14,7 @@ import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
-import frc.robot.commands.ElevatorMove;
+import frc.robot.commands.ElevatorManual;
 
 
 /**
@@ -33,14 +33,19 @@ public class Elevator extends Subsystem {
   public Elevator() {
     elevLeftMaster.setInverted(false);
     elevLeftSlave.setInverted(true);
+    elevLeftMaster.setNeutralMode(NeutralMode.Brake);
+    elevLeftSlave.setNeutralMode(NeutralMode.Brake);
 
     elevRightMaster.setInverted(false);
     elevRightSlave.setInverted(true);
+    elevRightMaster.setNeutralMode(NeutralMode.Brake);
+    elevRightSlave.setNeutralMode(NeutralMode.Brake);
+
   }
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
-    setDefaultCommand(new ElevatorMove());
+    setDefaultCommand(new ElevatorManual());
   }
 
   public void setElevLeft(double setPower){

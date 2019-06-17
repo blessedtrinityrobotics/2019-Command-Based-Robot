@@ -7,17 +7,17 @@
 
 package frc.robot.commands;
 
+
 import edu.wpi.first.wpilibj.command.Command; 
 import frc.robot.Robot;
-import frc.robot.subsystems.Wristtrain;
 import frc.robot.RobotMap;
-import frc.robot.OI;;
 
-public class wristDrive extends Command {
-  public wristDrive() {
+
+public class ElevatorManual extends Command {
+  public ElevatorManual() {
     // test comment
     // Use requires() here to declare subsystem dependencies
-    requires(Robot.wrisTrain);
+    requires(Robot.elevator);
   }
 
   // Called just before this Command runs the first time
@@ -28,11 +28,10 @@ public class wristDrive extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    //Get All Axis Values
-    
-    double rightStickY = Robot.m_oi.getAxisOperator(RobotMap.rightStickY);
-    Robot.wrisTrain.setWristPower(rightStickY);
+    double leftStickOperatorY = Robot.m_oi.getAxisOperator(RobotMap.LEFT_STICK_Y);
 
+    Robot.elevator.setElevLeft(leftStickOperatorY);
+    Robot.elevator.setElevRight(leftStickOperatorY);
   }
   
 
@@ -45,7 +44,6 @@ public class wristDrive extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-   
   }
 
   // Called when another command which requires one or more of the same

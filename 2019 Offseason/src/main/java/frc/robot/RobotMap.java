@@ -28,15 +28,15 @@ public class RobotMap {
 
 
 
-  public static final double turningPower = 0.5;
+  public static final double TURNING_POWER = 0.5;
   
 
-  public static final int leftStickX       = 0;  
-  public static final int leftStickY       = 1;
-  public static final int leftTriggerAxis  = 2;
-  public static final int rightTriggerAxis = 3;
-  public static final int rightStickX      = 4;
-  public static final int rightStickY      = 5;
+  public static final int LEFT_STICK_X      = 0;  
+  public static final int LEFT_STICK_Y       = 1;
+  public static final int LEFT_TRIGGER_AXIS  = 2;
+  public static final int RIGHT_TRIGGER_AXIS = 3;
+  public static final int RIGHT_STICK_X      = 4;
+  public static final int RIGHT_STICK_Y      = 5;
 
 
 
