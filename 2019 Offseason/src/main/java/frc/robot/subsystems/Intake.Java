@@ -14,26 +14,25 @@ import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
-import frc.robot.commands.ElevatorMove;
+
 
 
 /**
  * Add your docs here.
  */
-public class IntakeSub extends Subsystem {
+public class Intake extends Subsystem {
 
-  
-  // Put methods for controlling this subsystem
-  // here. Call these from Commands.
+  private VictorSPX intakeMaster = new VictorSPX(RobotMap.INTAKE_MASTER);
 
   public IntakeSub() {
-    private TalonSRX intakeMaster = new TalonSRX(RobotMap.INTAKE_MASTER);
+    intakeMaster.setInverted(true);
+    intakeMaster.setNeutralMode(NeutralMode.Brake);
   }
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     //setDefaultCommand(new ElevatorMove());
-    intakeMaster.setInverted(true);
+    
   }
 
   public void setIntakePower(double setPower){
