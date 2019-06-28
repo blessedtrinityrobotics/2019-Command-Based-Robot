@@ -15,57 +15,80 @@ package frc.robot;
  */
 public class RobotMap {
 
+// Ports  
+
 	public static final int MOTOR_LEFT_MASTER_1 = 2;
-	public static final int MOTOR_LEFT_SLAVE_1 = 4;
-  public static final int MOTOR_LEFT_SLAVE_2 = 6;
+	public static final int MOTOR_LEFT_SLAVE_1  = 4;
+  public static final int MOTOR_LEFT_SLAVE_2  = 6;
   
   public static final int MOTOR_RIGHT_MASTER_1 = 3;
-	public static final int MOTOR_RIGHT_SLAVE_1 = 5 ;
-  public static final int MOTOR_RIGHT_SLAVE_2 = 7;
+	public static final int MOTOR_RIGHT_SLAVE_1  = 5 ;
+  public static final int MOTOR_RIGHT_SLAVE_2  = 7;
   
-  public static final int DRIVER_CONTROLLER = 0;
+  public static final int DRIVER_CONTROLLER   = 0;
   public static final int OPERATOR_CONTROLLER = 1;
-
-
 
   public static final double TURNING_POWER = 0.5;
   
-
-  public static final int LEFT_STICK_X      = 0;  
+  public static final int LEFT_STICK_X       = 0;  
   public static final int LEFT_STICK_Y       = 1;
   public static final int LEFT_TRIGGER_AXIS  = 2;
   public static final int RIGHT_TRIGGER_AXIS = 3;
   public static final int RIGHT_STICK_X      = 4;
   public static final int RIGHT_STICK_Y      = 5;
 
-
-
-
   public static final int ELEV_RIGHT_MASTER = 9;
-  public static final int ELEV_RIGHT_SLAVE = 10;
-  public static final int ELEV_LEFT_MASTER = 8;
-  public static final int ELEV_LEFT_SLAVE = 11;
-
+  public static final int ELEV_RIGHT_SLAVE  = 10;
+  public static final int ELEV_LEFT_MASTER  = 8;
+  public static final int ELEV_LEFT_SLAVE   = 11;
 
   public static final int WRIST_MASTER = 13;
-  public static final int WRIST_SLAVE = 12; 
+  public static final int WRIST_SLAVE  = 12; 
 
   public static final int INTAKE_MASTER = 14;
 
-  
+// End of Ports
 
+// PID/Motion Magic Constants
+  public final static int kTimeoutMs = 30;
+    
+  // DriveTrain Motion Magic Constants
+  public final static int kDriveTrainSensorVel = 1000;
+  public final static int kDriveTrainAccel     = kDriveTrainSensorVel/2;
+  public final static int kDriveTrainVelocity  = kDriveTrainSensorVel/2;
 
+  // Elevator Motion Magic Constants
+  public final static int kElevSensorVel = 1000;
+  public final static int kElevAccel     = kElevSensorVel/2;
+  public final static int kElevVelocity  = kElevSensorVel/2;
 
+  // Wrist Motion Magic Constants
+  public final static int kWristSensorVel  = 1000;
+  public final static int kWristTrainAccel = kWristSensorVel/2;
+  public final static int kWristVelocity   = kWristSensorVel/2;
+  /**
+  * PID Gains may have to be adjusted based on the responsiveness of control loop.
+  * kF: 1023 represents output value to Talon at 100%, 6800 represents Velocity units at 100% output
+  * Not all set of Gains are used in this project and may be removed as desired.
+  *                                 	                 kP   kI    kD   kF   Iz    PeakOut */
+  public final static Gains kGains_Drive  = new Gains( 0.0, 0.0,  0.0, 0.0, 100,  0.50 );
+  public final static Gains kGains_Elev   = new Gains( 0.0, 0.0,  0.0, 0.0, 100,  0.50 );
+  public final static Gains kGains_Wrist  = new Gains( 0.0, 0.0,  0.0, 0.0, 100,  0.50 );
 
-  // For example to map the left and right motors, you could define the
-  // following variables to use with your drivetrain subsystem.
-  // public static int leftMotor = 1;
-  // public static int rightMotor = 2;
+  /** ---- Flat constants, you should not need to change these ---- */
+  /* We allow either a 0 or 1 when selecting an ordinal for remote devices [You can have up to 2 devices assigned remotely to a talon/victor] */
+  public final static int REMOTE_0 = 0;
+  public final static int REMOTE_1 = 1;
 
+  /* We allow either a 0 or 1 when selecting a PID Index, where 0 is primary and 1 is auxiliary */
+  public final static int PID_PRIMARY = 0;
+  public final static int PID_TURN    = 1;
 
+  /* ---- Named slots, used to clarify code ---- */
+  public final static int kSlot_Drive = 0;
+  public final static int kSlot_Elev  = 0;
+  public final static int kSlot_Wrist = 0;
 
-  // If you are using multiple modules, make sure to define both the port
-  // number and the module. For example you with a rangefinder:
-  // public static int rangefinderPort = 1;
-  // public static int rangefinderModule = 1;
+// End of PID/Motion Magic Constants
+
 }

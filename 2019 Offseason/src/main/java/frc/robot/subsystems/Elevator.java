@@ -41,6 +41,8 @@ public class Elevator extends Subsystem {
     elevRightMaster.setNeutralMode(NeutralMode.Brake);
     elevRightSlave.setNeutralMode(NeutralMode.Brake);
 
+    
+
   }
   @Override
   public void initDefaultCommand() {
