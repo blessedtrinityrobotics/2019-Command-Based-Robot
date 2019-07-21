@@ -25,8 +25,11 @@ public class Intake extends Subsystem {
   private VictorSPX intakeMaster = new VictorSPX(RobotMap.INTAKE_MASTER);
 
   public Intake() {
+
+    // Direction and Neutral Mode
     intakeMaster.setInverted(true);
     intakeMaster.setNeutralMode(NeutralMode.Brake);
+
   }
   @Override
   public void initDefaultCommand() {

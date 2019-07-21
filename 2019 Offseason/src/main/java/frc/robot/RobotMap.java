@@ -58,22 +58,22 @@ public class RobotMap {
   public final static int kDriveTrainVelocity  = kDriveTrainSensorVel/2;
 
   // Elevator Motion Magic Constants
-  public final static int kElevSensorVel = 1000;
+  public final static int kElevSensorVel = 3410;
   public final static int kElevAccel     = kElevSensorVel/2;
   public final static int kElevVelocity  = kElevSensorVel/2;
 
   // Wrist Motion Magic Constants
-  public final static int kWristSensorVel  = 1000;
+  public final static int kWristSensorVel  = 399;
   public final static int kWristTrainAccel = kWristSensorVel/2;
   public final static int kWristVelocity   = kWristSensorVel/2;
   /**
   * PID Gains may have to be adjusted based on the responsiveness of control loop.
   * kF: 1023 represents output value to Talon at 100%, 6800 represents Velocity units at 100% output
   * Not all set of Gains are used in this project and may be removed as desired.
-  *                                 	                 kP   kI    kD   kF   Iz    PeakOut */
-  public final static Gains kGains_Drive  = new Gains( 0.0, 0.0,  0.0, 0.0, 100,  0.50 );
-  public final static Gains kGains_Elev   = new Gains( 0.0, 0.0,  0.0, 0.0, 100,  0.50 );
-  public final static Gains kGains_Wrist  = new Gains( 0.0, 0.0,  0.0, 0.0, 100,  0.50 );
+  *                                 	                 kP   kI    kD   kF                    Iz    PeakOut */
+  public final static Gains kGains_Drive  = new Gains( 0.0, 0.0,  0.0, 0.0,                  100,  0.50 );
+  public final static Gains kGains_Elev   = new Gains( 1.5, 0.0,  0.0, 1023/kElevSensorVel,  100,  0.50 );
+  public final static Gains kGains_Wrist  = new Gains( 0.0, 0.0,  0.0, 1023/kWristSensorVel, 100,  0.50 );
 
   /** ---- Flat constants, you should not need to change these ---- */
   /* We allow either a 0 or 1 when selecting an ordinal for remote devices [You can have up to 2 devices assigned remotely to a talon/victor] */

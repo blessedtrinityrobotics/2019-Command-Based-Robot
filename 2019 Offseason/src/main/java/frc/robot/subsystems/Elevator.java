@@ -31,19 +31,39 @@ public class Elevator extends Subsystem {
   // here. Call these from Commands.
 
   public Elevator() {
+
+    // Motion Magic 
+    // Left
+    elevLeftMaster.selectProfileSlot(RobotMap.kSlot_Elev, RobotMap.PID_PRIMARY); // Profile slot to store PID values on speed controller - MOST IMPORTANT LINE
+    elevLeftMaster.config_kP(RobotMap.kSlot_Elev, RobotMap.kGains_Elev.kP, RobotMap.kTimeoutMs); // P Gain
+    elevLeftMaster.config_kI(RobotMap.kSlot_Elev, RobotMap.kGains_Elev.kI, RobotMap.kTimeoutMs); // I Gain
+    elevLeftMaster.config_kD(RobotMap.kSlot_Elev, RobotMap.kGains_Elev.kD, RobotMap.kTimeoutMs); // D Gain
+    elevLeftMaster.config_kF(RobotMap.kSlot_Elev, RobotMap.kGains_Elev.kF, RobotMap.kTimeoutMs); // F Gain
+    elevLeftMaster.configMotionAcceleration(RobotMap.kElevAccel, RobotMap.kTimeoutMs);      // Motion Magic Acceleration Constant
+    elevLeftMaster.configMotionCruiseVelocity(RobotMap.kElevVelocity, RobotMap.kTimeoutMs); // Motion Magic Cruise Velocity Constant
+    elevLeftMaster.setSelectedSensorPosition(0, RobotMap.PID_PRIMARY, RobotMap.kTimeoutMs); // Sets Encoder to 0 when robot starts
+    // Right
+    elevRightMaster.selectProfileSlot(RobotMap.kSlot_Elev, RobotMap.PID_PRIMARY); // Profile slot to store PID values on speed controller - MOST IMPORTANT LINE
+    elevRightMaster.config_kP(RobotMap.kSlot_Elev, RobotMap.kGains_Elev.kP, RobotMap.kTimeoutMs); // P Gain
+    elevRightMaster.config_kI(RobotMap.kSlot_Elev, RobotMap.kGains_Elev.kI, RobotMap.kTimeoutMs); // I Gain
+    elevRightMaster.config_kD(RobotMap.kSlot_Elev, RobotMap.kGains_Elev.kD, RobotMap.kTimeoutMs); // D Gain
+    elevRightMaster.config_kF(RobotMap.kSlot_Elev, RobotMap.kGains_Elev.kF, RobotMap.kTimeoutMs); // F Gain
+    elevRightMaster.configMotionAcceleration(RobotMap.kElevAccel, RobotMap.kTimeoutMs);      // Motion Magic Acceleration Constant
+    elevRightMaster.configMotionCruiseVelocity(RobotMap.kElevVelocity, RobotMap.kTimeoutMs); // Motion Magic Cruise Velocity Constant
+    elevRightMaster.setSelectedSensorPosition(0, RobotMap.PID_PRIMARY, RobotMap.kTimeoutMs); // Sets Encoder to 0 when robot starts
+
+    // Direction and Neutral Mode
+    //Left
     elevLeftMaster.setInverted(false);
     elevLeftSlave.setInverted(true);
     elevLeftMaster.setNeutralMode(NeutralMode.Brake);
     elevLeftSlave.setNeutralMode(NeutralMode.Brake);
-
+    // Right
     elevRightMaster.setInverted(false);
     elevRightSlave.setInverted(true);
     elevRightMaster.setNeutralMode(NeutralMode.Brake);
     elevRightSlave.setNeutralMode(NeutralMode.Brake);
-
-    
-    
-
+  
   }
   @Override
   public void initDefaultCommand() {
