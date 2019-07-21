@@ -80,5 +80,11 @@ public class Elevator extends Subsystem {
     elevRightMaster.set(ControlMode.PercentOutput, -setPower);
     elevRightSlave.follow(elevRightMaster);
   }
+
+  public void moveToPos(double target){
+    elevLeftMaster.set(ControlMode.MotionMagic, target);  // Need to confirm direction (from old code)
+    elevRightMaster.set(ControlMode.MotionMagic, target); // Need to confirm direction (from old code)
+
+  }
   
 }
