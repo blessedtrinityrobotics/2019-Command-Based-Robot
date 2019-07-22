@@ -35,17 +35,25 @@ public class MoveElevToPos extends Command {
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    double currentPostion = Robot.elevator.getAvgPosition();
+    if( ( currentPostion > targetPos - 100 /* MIN */ ) && ( currentPostion < targetPos + 100 /* MAX */ ) ) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
+    Robot.elevator.moveToPos(targetPos);
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
+    Robot.elevator.setElevLeft(0.0);
+    Robot.elevator.setElevRight(0.0);
   }
 }

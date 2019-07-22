@@ -14,7 +14,8 @@ import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
-import frc.robot.commands.ElevatorManual;
+//import frc.robot.commands.ElevatorManual;
+import frc.robot.commands.MoveElevToPos;
 
 
 /**
@@ -68,7 +69,7 @@ public class Elevator extends Subsystem {
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
-    setDefaultCommand(new ElevatorManual());
+    setDefaultCommand(new MoveElevToPos(0.0));
   }
 
   public void setElevLeft(double setPower){
@@ -84,7 +85,10 @@ public class Elevator extends Subsystem {
   public void moveToPos(double target){
     elevLeftMaster.set(ControlMode.MotionMagic, target);  // Need to confirm direction (from old code)
     elevRightMaster.set(ControlMode.MotionMagic, target); // Need to confirm direction (from old code)
+  }
 
+  public double getAvgPosition(){
+    return ( ( elevLeftMaster.getSelectedSensorPosition() + elevRightMaster.getSelectedSensorPosition() ) /2);
   }
   
 }

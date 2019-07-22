@@ -8,8 +8,9 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.XboxController;
-//import edu.wpi.first.wpilibj.buttons.Button;
-//import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import frc.robot.commands.MoveElevToPos;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -36,29 +37,56 @@ public class OI {
     return operator.getRawAxis(axis);
   }
 
+  // Starts Driver Buttons
+  Button xButtonDriver             = new JoystickButton(driver, RobotMap.xButton);
+  Button aButtonDriver             = new JoystickButton(driver, RobotMap.aButton);
+  Button bButtonDriver             = new JoystickButton(driver, RobotMap.bButton);
+  Button yButtonDriver             = new JoystickButton(driver, RobotMap.yButton);
+  Button backButtonDriver          = new JoystickButton(driver, RobotMap.backButton);
+  Button startButtonDriver         = new JoystickButton(driver, RobotMap.startButton);
+  Button leftBumperButtonDriver    = new JoystickButton(driver, RobotMap.leftBumperButton);
+  Button rightBumperButtonDriver   = new JoystickButton(driver, RobotMap.rightBumperButton);
+  Button leftStickButtonDriver     = new JoystickButton(driver, RobotMap.leftStickButton);
+  Button rightStickButtonDriver    = new JoystickButton(driver, RobotMap.rightStickButton);
 
+  // Starts Operator Buttons
+  Button xButtonOperator           = new JoystickButton(operator, RobotMap.xButton);
+  Button aButtonOperator           = new JoystickButton(operator, RobotMap.aButton);
+  Button bButtonOperator           = new JoystickButton(operator, RobotMap.bButton);
+  Button yButtonOperator           = new JoystickButton(operator, RobotMap.yButton);
+  Button backButtonOperator        = new JoystickButton(operator, RobotMap.backButton);
+  Button startButtonOperator       = new JoystickButton(operator, RobotMap.startButton);
+  Button leftBumperButtonOperator  = new JoystickButton(operator, RobotMap.leftBumperButton);
+  Button rightBumperButtonOperator = new JoystickButton(operator, RobotMap.rightBumperButton);
+  Button leftStickButtonOperator   = new JoystickButton(operator, RobotMap.leftStickButton);
+  Button rightStickButtonOperator  = new JoystickButton(operator, RobotMap.rightStickButton);
 
+  public OI(){
 
+    // Starts Commands
+    aButtonOperator.whenPressed(new MoveElevToPos(RobotMap.BotElev)); // All the way down
+    bButtonOperator.whenPressed(new MoveElevToPos(RobotMap.LowElev)); // Low position
+    yButtonOperator.whenPressed(new MoveElevToPos(RobotMap.MidElev)); // Mid Position
+    xButtonOperator.whenPressed(new MoveElevToPos(RobotMap.TopElev)); // Top Position
 
+    // Command Cancels
+    // A Button
+    aButtonOperator.cancelWhenPressed(new MoveElevToPos(RobotMap.LowElev));
+    aButtonOperator.cancelWhenPressed(new MoveElevToPos(RobotMap.MidElev));
+    aButtonOperator.cancelWhenPressed(new MoveElevToPos(RobotMap.TopElev));
+    // B Button
+    bButtonOperator.cancelWhenPressed(new MoveElevToPos(RobotMap.BotElev));
+    bButtonOperator.cancelWhenPressed(new MoveElevToPos(RobotMap.MidElev));
+    bButtonOperator.cancelWhenPressed(new MoveElevToPos(RobotMap.TopElev));
+    // Y Button
+    yButtonOperator.cancelWhenPressed(new MoveElevToPos(RobotMap.BotElev));
+    yButtonOperator.cancelWhenPressed(new MoveElevToPos(RobotMap.LowElev));
+    yButtonOperator.cancelWhenPressed(new MoveElevToPos(RobotMap.TopElev));
+    // X Button
+    xButtonOperator.cancelWhenPressed(new MoveElevToPos(RobotMap.BotElev));
+    xButtonOperator.cancelWhenPressed(new MoveElevToPos(RobotMap.LowElev));
+    xButtonOperator.cancelWhenPressed(new MoveElevToPos(RobotMap.MidElev));
 
+  }
 
-  // There are a few additional built in buttons you can use. Additionally,
-  // by subclassing Button you can create custom triggers and bind those to
-  // commands the same as any other Button.
-
-  //// TRIGGERING COMMANDS WITH BUTTONS
-  // Once you have a button, it's trivial to bind it to a button in one of
-  // three ways:
-
-  // Start the command when the button is pressed and let it run the command
-  // until it is finished as determined by it's isFinished method.
-  // button.whenPressed(new ExampleCommand());
-
-  // Run the command while the button is being held down and interrupt it once
-  // the button is released.
-  // button.whileHeld(new ExampleCommand());
-
-  // Start the command when the button is released and let it run the command
-  // until it is finished as determined by it's isFinished method.
-  // button.whenReleased(new ExampleCommand());
 }

@@ -37,6 +37,17 @@ public class RobotMap {
   public static final int RIGHT_STICK_X      = 4;
   public static final int RIGHT_STICK_Y      = 5;
 
+  public static final int aButton           = 1;
+  public static final int bButton           = 2;
+  public static final int xButton           = 3;
+  public static final int yButton           = 4;
+  public static final int leftBumperButton  = 5;
+  public static final int rightBumperButton = 6;
+  public static final int backButton        = 7;
+  public static final int startButton       = 8;
+  public static final int leftStickButton   = 9;
+  public static final int rightStickButton  = 10;
+
   public static final int ELEV_RIGHT_MASTER = 9;
   public static final int ELEV_RIGHT_SLAVE  = 10;
   public static final int ELEV_LEFT_MASTER  = 8;
@@ -46,6 +57,16 @@ public class RobotMap {
   public static final int WRIST_SLAVE  = 12; 
 
   public static final int INTAKE_MASTER = 14;
+
+  public static final double BotElev = 0;
+  public static final double LowElev = 1000;
+  public static final double MidElev = 5000;
+  public static final double TopElev = 10000;
+
+  public static final double RetractWrist = 0;
+  public static final double TravelWrist = 200;
+  public static final double CargoWrist = 300;
+  public static final double HatchWrist = 1000;
 
 // End of Ports
 
@@ -88,7 +109,6 @@ public class RobotMap {
   public final static int kSlot_Drive = 0;
   public final static int kSlot_Elev  = 0;
   public final static int kSlot_Wrist = 0;
-
 // End of PID/Motion Magic Constants
 
 }
