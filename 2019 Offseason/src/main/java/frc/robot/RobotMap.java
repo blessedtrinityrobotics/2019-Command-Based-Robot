@@ -58,15 +58,18 @@ public class RobotMap {
 
   public static final int INTAKE_MASTER = 14;
 
+  public static final int CLIMB_MOTOR_MASTER = 15;
+  public static final int CLIMB_MOTOR_SLAVE  = 16;  
+
   public static final double BotElev = 0;
   public static final double LowElev = 1000;
   public static final double MidElev = 5000;
   public static final double TopElev = 10000;
 
   public static final double RetractWrist = 0;
-  public static final double TravelWrist = 200;
-  public static final double CargoWrist = 300;
-  public static final double HatchWrist = 1000;
+  public static final double TravelWrist  = 200;
+  public static final double CargoWrist   = 300;
+  public static final double HatchWrist   = 1000;
 
 // End of Ports
 
@@ -110,5 +113,6 @@ public class RobotMap {
   public final static int kSlot_Elev  = 0;
   public final static int kSlot_Wrist = 0;
 // End of PID/Motion Magic Constants
+
 
 }
