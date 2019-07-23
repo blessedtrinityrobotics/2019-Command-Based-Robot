@@ -88,8 +88,13 @@ public class RobotMap {
 
   // Wrist Motion Magic Constants
   public final static int kWristSensorVel  = 399;
-  public final static int kWristTrainAccel = kWristSensorVel/2;
+  public final static int kWristAccel = kWristSensorVel/2;
   public final static int kWristVelocity   = kWristSensorVel/2;
+
+  // Climb Motion Magic Constants
+  public final static int kClimbSensorVel  = 399;
+  public final static int kClimbAccel = kClimbSensorVel/2;
+  public final static int kClimbVelocity   = kClimbSensorVel/2;
   /**
   * PID Gains may have to be adjusted based on the responsiveness of control loop.
   * kF: 1023 represents output value to Talon at 100%, 6800 represents Velocity units at 100% output
@@ -98,6 +103,7 @@ public class RobotMap {
   public final static Gains kGains_Drive  = new Gains( 0.0, 0.0,  0.0, 0.0,                  100,  0.50 );
   public final static Gains kGains_Elev   = new Gains( 1.5, 0.0,  0.0, 1023/kElevSensorVel,  100,  0.50 );
   public final static Gains kGains_Wrist  = new Gains( 0.0, 0.0,  0.0, 1023/kWristSensorVel, 100,  0.50 );
+  public final static Gains kGains_Climb  = new Gains( 0.0, 0.0,  0.0, 1023/kWristSensorVel, 100,  0.50 );
 
   /** ---- Flat constants, you should not need to change these ---- */
   /* We allow either a 0 or 1 when selecting an ordinal for remote devices [You can have up to 2 devices assigned remotely to a talon/victor] */
@@ -112,6 +118,8 @@ public class RobotMap {
   public final static int kSlot_Drive = 0;
   public final static int kSlot_Elev  = 0;
   public final static int kSlot_Wrist = 0;
+  public final static int kSlot_Climb = 0;
+
 // End of PID/Motion Magic Constants
 
 

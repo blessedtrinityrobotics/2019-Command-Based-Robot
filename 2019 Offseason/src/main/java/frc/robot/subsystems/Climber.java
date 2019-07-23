@@ -29,6 +29,15 @@ public class Climber extends Subsystem {
 
   public Climber(){
 
+    climbMotorMaster.selectProfileSlot(RobotMap.kSlot_Climb, RobotMap.PID_PRIMARY); // Profile slot to store PID values on speed controller - MOST IMPORTANT LINE
+    climbMotorMaster.config_kP(RobotMap.kSlot_Climb, RobotMap.kGains_Climb.kP, RobotMap.kTimeoutMs); // P Gain
+    climbMotorMaster.config_kI(RobotMap.kSlot_Climb, RobotMap.kGains_Climb.kI, RobotMap.kTimeoutMs); // I Gain
+    climbMotorMaster.config_kD(RobotMap.kSlot_Climb, RobotMap.kGains_Climb.kD, RobotMap.kTimeoutMs); // D Gain
+    climbMotorMaster.config_kF(RobotMap.kSlot_Climb, RobotMap.kGains_Climb.kF, RobotMap.kTimeoutMs); // F Gain
+    climbMotorMaster.configMotionAcceleration(RobotMap.kClimbAccel, RobotMap.kTimeoutMs);      // Motion Magic Acceleration Constant
+    climbMotorMaster.configMotionCruiseVelocity(RobotMap.kClimbVelocity, RobotMap.kTimeoutMs); // Motion Magic Cruise Velocity Constant
+    climbMotorMaster.setSelectedSensorPosition(0, RobotMap.PID_PRIMARY, RobotMap.kTimeoutMs); // Sets Encoder to 0 when robot starts
+
     climbMotorMaster.setInverted(false);
     climbMotorSlave.setInverted(false);
     
