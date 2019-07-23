@@ -11,7 +11,7 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
-
+import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 import frc.robot.commands.MoveClimberToPos;;
@@ -29,6 +29,8 @@ public class Climber extends Subsystem {
 
   public Climber(){
 
+    climbMotorMaster.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, RobotMap.PID_PRIMARY, RobotMap.kTimeoutMs); // Starts Encoder
+    climbMotorMaster.setSensorPhase(false); // Reverse Directions - FALSE
     climbMotorMaster.selectProfileSlot(RobotMap.kSlot_Climb, RobotMap.PID_PRIMARY); // Profile slot to store PID values on speed controller - MOST IMPORTANT LINE
     climbMotorMaster.config_kP(RobotMap.kSlot_Climb, RobotMap.kGains_Climb.kP, RobotMap.kTimeoutMs); // P Gain
     climbMotorMaster.config_kI(RobotMap.kSlot_Climb, RobotMap.kGains_Climb.kI, RobotMap.kTimeoutMs); // I Gain
