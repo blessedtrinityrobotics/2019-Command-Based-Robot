@@ -47,7 +47,6 @@ public class Drivetrain extends Subsystem {
     slaveLeft1.setNeutralMode(NeutralMode.Brake);
     slaveLeft2.setNeutralMode(NeutralMode.Brake);
 
-    
     masterRight.setNeutralMode(NeutralMode.Brake);
     slaveRight1.setNeutralMode(NeutralMode.Brake);
     slaveRight2.setNeutralMode(NeutralMode.Brake);

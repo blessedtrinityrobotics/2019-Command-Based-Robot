@@ -8,6 +8,7 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
@@ -35,6 +36,8 @@ public class Elevator extends Subsystem {
 
     // Motion Magic 
     // Left
+    elevLeftMaster.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, RobotMap.PID_PRIMARY, RobotMap.kTimeoutMs); // Starts Encoder
+    elevLeftMaster.setSensorPhase(false); // Reverse Directions - FALSE
     elevLeftMaster.selectProfileSlot(RobotMap.kSlot_Elev, RobotMap.PID_PRIMARY); // Profile slot to store PID values on speed controller - MOST IMPORTANT LINE
     elevLeftMaster.config_kP(RobotMap.kSlot_Elev, RobotMap.kGains_Elev.kP, RobotMap.kTimeoutMs); // P Gain
     elevLeftMaster.config_kI(RobotMap.kSlot_Elev, RobotMap.kGains_Elev.kI, RobotMap.kTimeoutMs); // I Gain
@@ -44,6 +47,8 @@ public class Elevator extends Subsystem {
     elevLeftMaster.configMotionCruiseVelocity(RobotMap.kElevVelocity, RobotMap.kTimeoutMs); // Motion Magic Cruise Velocity Constant
     elevLeftMaster.setSelectedSensorPosition(0, RobotMap.PID_PRIMARY, RobotMap.kTimeoutMs); // Sets Encoder to 0 when robot starts
     // Right
+    elevRightMaster.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, RobotMap.PID_PRIMARY, RobotMap.kTimeoutMs); // Starts Encoder
+    elevRightMaster.setSensorPhase(false); // Reverse Directions - FALSE
     elevRightMaster.selectProfileSlot(RobotMap.kSlot_Elev, RobotMap.PID_PRIMARY); // Profile slot to store PID values on speed controller - MOST IMPORTANT LINE
     elevRightMaster.config_kP(RobotMap.kSlot_Elev, RobotMap.kGains_Elev.kP, RobotMap.kTimeoutMs); // P Gain
     elevRightMaster.config_kI(RobotMap.kSlot_Elev, RobotMap.kGains_Elev.kI, RobotMap.kTimeoutMs); // I Gain
