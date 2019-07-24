@@ -68,25 +68,7 @@ public class OI {
     bButtonOperator.whenPressed(new MoveElevToPos(RobotMap.LowElev)); // Low position
     yButtonOperator.whenPressed(new MoveElevToPos(RobotMap.MidElev)); // Mid Position
     xButtonOperator.whenPressed(new MoveElevToPos(RobotMap.TopElev)); // Top Position
-
-    // Command Cancels
-    // A Button
-    aButtonOperator.cancelWhenPressed(new MoveElevToPos(RobotMap.LowElev));
-    aButtonOperator.cancelWhenPressed(new MoveElevToPos(RobotMap.MidElev));
-    aButtonOperator.cancelWhenPressed(new MoveElevToPos(RobotMap.TopElev));
-    // B Button
-    bButtonOperator.cancelWhenPressed(new MoveElevToPos(RobotMap.BotElev));
-    bButtonOperator.cancelWhenPressed(new MoveElevToPos(RobotMap.MidElev));
-    bButtonOperator.cancelWhenPressed(new MoveElevToPos(RobotMap.TopElev));
-    // Y Button
-    yButtonOperator.cancelWhenPressed(new MoveElevToPos(RobotMap.BotElev));
-    yButtonOperator.cancelWhenPressed(new MoveElevToPos(RobotMap.LowElev));
-    yButtonOperator.cancelWhenPressed(new MoveElevToPos(RobotMap.TopElev));
-    // X Button
-    xButtonOperator.cancelWhenPressed(new MoveElevToPos(RobotMap.BotElev));
-    xButtonOperator.cancelWhenPressed(new MoveElevToPos(RobotMap.LowElev));
-    xButtonOperator.cancelWhenPressed(new MoveElevToPos(RobotMap.MidElev));
-
+  
   }
 
 }
