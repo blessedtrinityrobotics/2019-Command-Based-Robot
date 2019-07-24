@@ -10,7 +10,9 @@ package frc.robot;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import frc.robot.commands.IntakeManual;
 import frc.robot.commands.MoveElevToPos;
+import frc.robot.commands.WristToPos;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -37,21 +39,6 @@ public class OI {
     return operator.getRawAxis(axis);
   }
 
-  public boolean getLeftBumperOperator(){
-    return operator.whenPressed(leftBumperButtonOperator)
-  }
-
-  public boolean getRightBumperOperator(){
-    return operator.whenPressed(rightBumperButtonOperator)
-  }
-
-  public boolean getLeftBumperDriver(){
-    return driver.whenPressed(leftBumperButtonDriver)
-  }
-
-  public boolean getRightBumperDriver(){
-    return driver.whenPressed(RightBumperButtonDriver)
-  }
 
 
   // Starts Driver Buttons
@@ -85,7 +72,18 @@ public class OI {
     bButtonOperator.whenPressed(new MoveElevToPos(RobotMap.LowElev)); // Low position
     yButtonOperator.whenPressed(new MoveElevToPos(RobotMap.MidElev)); // Mid Position
     xButtonOperator.whenPressed(new MoveElevToPos(RobotMap.TopElev)); // Top Position
-  
+
+    //Bumpers for Wrist
+    leftBumperButtonOperator.whenPressed(new WristToPos(RobotMap.CargoWrist));
+    rightBumperButtonOperator.whenPressed(new WristToPos(RobotMap.TravelWrist));
+
+    //Intake for Intake
+    startButtonOperator.whenPressed(new IntakeManual(.5));
+    backButtonOperator.whenPressed(new IntakeManual(-.5));
+    
+
+
+
   }
 
 }

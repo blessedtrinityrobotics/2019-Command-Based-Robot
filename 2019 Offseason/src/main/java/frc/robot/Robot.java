@@ -8,10 +8,12 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
+import frc.robot.commands.IntakeManual;
 import frc.robot.subsystems.Climber;
 import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.Elevator;
 import frc.robot.subsystems.Wrist;
+import frc.robot.subsystems.Intake;
 //import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 // import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -32,7 +34,7 @@ public class Robot extends TimedRobot {
   public static Elevator elevator     = new Elevator();
   public static Wrist wrist           = new Wrist();
   public static Climber climber       = new Climber();
-  public static IntakeManual intake = new IntakeManual();
+  public static Intake intake         = new Intake();
   public static OI m_oi;
 /*
   Command m_autonomousCommand;

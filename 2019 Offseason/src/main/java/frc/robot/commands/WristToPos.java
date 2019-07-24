@@ -10,13 +10,13 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command; 
 import frc.robot.Robot;
 import frc.robot.RobotMap;
-import frc.robot.subsystem.Wrist;
-import frc.robot.Robot.Oi;
+import frc.robot.subsystems.Wrist;
+import frc.robot.OI;
 
 
-public class WristManual extends Command {
+public class WristToPos extends Command {
   double targetPos;
-  public WristManual(double target) {
+  public WristToPos(double target) {
       targetPos = target;
     // Use requires() here to declare subsystem dependencies
     requires(Robot.wrist);
@@ -30,20 +30,6 @@ public class WristManual extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-
-    boolean leftBumperOperator =  Robot.m_oi.getLeftBumperOperator();
-    boolean rightBumperOrerator = Robot.m_oi.getRightBumperOperator();
-
-        if(leftBumperOperator == true)
-        {
-            targetPos = TravelWrist;
-        }
-
-        else if(rightBumperOrerator == true)
-        {
-            targetPos = CargoWrist;
-        }
-        
     Robot.wrist.moveToPos(targetPos);
   }
   
@@ -64,7 +50,6 @@ public class WristManual extends Command {
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-    Robot.wrist.setElevLeft(0.0);
-    Robot.wrist.setElevRight(0.0);
+    Robot.wrist.setWristPower(0.0);
   }
 }

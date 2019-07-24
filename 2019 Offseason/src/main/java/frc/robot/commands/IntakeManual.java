@@ -17,7 +17,9 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 public class IntakeManual extends Command {
-  public IntakeManual() {
+  double power;
+  public IntakeManual(double p) {
+    power = p;
     // test comment
     // Use requires() here to declare subsystem dependencies
     requires(Robot.intake);
@@ -31,24 +33,7 @@ public class IntakeManual extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-
-  boolean leftBumperDriver =  Robot.m_oi.getLeftBumperDriver();
-  boolean rightBumperDriver = Robot.m_oi.getRightBumperDriver();
-
-    if(leftTriggerOperator==true)
-    {
-      Robot.intake.setIntakePower(.5);
-    }
-
-    else if(rightTriggerOperator==true)
-    {
-      Robot.intake.setIntakePower(-.5);
-    }
-    else
-    {
-      Robot.intake.setIntakePower(0.0);
-    }
-
+    Robot.intake.setIntakePower(power);
   }
   
 
@@ -68,6 +53,6 @@ public class IntakeManual extends Command {
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-    robot.intake.setIntakePower(0.0)
+    Robot.intake.setIntakePower(0.0);
   }
 }
