@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.commands.IntakeManual;
+import frc.robot.commands.IntakeProcedure;
 import frc.robot.commands.MoveElevToPos;
 import frc.robot.commands.WristToPos;
 
@@ -74,16 +75,13 @@ public class OI {
     xButtonOperator.whenPressed(new MoveElevToPos(RobotMap.TopElev)); // Top Position
 
     //Bumpers for Wrist
-    leftBumperButtonOperator.whenPressed(new WristToPos(RobotMap.CargoWrist));
-    rightBumperButtonOperator.whenPressed(new WristToPos(RobotMap.TravelWrist));
+    leftBumperButtonOperator.whenPressed(new WristToPos(RobotMap.CargoWrist)); // Cargo Wrist
+    rightBumperButtonOperator.whenPressed(new WristToPos(RobotMap.TravelWrist)); // Travelling Wrist
 
     //Intake for Intake
-    startButtonOperator.whenPressed(new IntakeManual(.5));
-    backButtonOperator.whenPressed(new IntakeManual(-.5));
-    
-
-
-
+    startButtonOperator.whenPressed(new IntakeProcedure()); //Move Wrist Up and Intake the Ball
+    rightBumperButtonDriver.whenPressed(new IntakeManual(-.5)); //Intake Speed -
+  
   }
 
 }
