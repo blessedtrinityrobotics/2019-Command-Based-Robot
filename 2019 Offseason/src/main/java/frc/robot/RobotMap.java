@@ -121,6 +121,4 @@ public class RobotMap {
   public final static int kSlot_Climb = 0;
 
 // End of PID/Motion Magic Constants
-
-
 }
