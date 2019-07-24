@@ -103,7 +103,7 @@ public class RobotMap {
   public final static Gains kGains_Drive  = new Gains( 0.0, 0.0,  0.0, 0.0,                  100,  0.50 );
   public final static Gains kGains_Elev   = new Gains( 1.5, 0.0,  0.0, 1023/kElevSensorVel,  100,  0.50 );
   public final static Gains kGains_Wrist  = new Gains( 0.0, 0.0,  0.0, 1023/kWristSensorVel, 100,  0.50 );
-  public final static Gains kGains_Climb  = new Gains( 0.0, 0.0,  0.0, 1023/kWristSensorVel, 100,  0.50 );
+  public final static Gains kGains_Climb  = new Gains( 0.0, 0.0,  0.0, 1023/kClimbSensorVel, 100,  0.50 );
 
   /** ---- Flat constants, you should not need to change these ---- */
   /* We allow either a 0 or 1 when selecting an ordinal for remote devices [You can have up to 2 devices assigned remotely to a talon/victor] */

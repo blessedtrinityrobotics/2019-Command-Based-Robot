@@ -71,6 +71,7 @@ public class Elevator extends Subsystem {
     elevRightSlave.setNeutralMode(NeutralMode.Brake);
   
   }
+
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
@@ -89,7 +90,9 @@ public class Elevator extends Subsystem {
 
   public void moveToPos(double target){
     elevLeftMaster.set(ControlMode.MotionMagic, target);  // Need to confirm direction (from old code)
+    elevLeftSlave.follow(elevLeftMaster);
     elevRightMaster.set(ControlMode.MotionMagic, target); // Need to confirm direction (from old code)
+    elevRightSlave.follow(elevRightMaster);
   }
 
   public double getAvgPosition(){
