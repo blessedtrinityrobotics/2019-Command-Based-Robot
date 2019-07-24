@@ -37,6 +37,15 @@ public class OI {
     return operator.getRawAxis(axis);
   }
 
+  public boolean getLeftTriggerOperator(){
+    return operator.whenPressed(leftBumperButtonDriver)
+  }
+
+  public boolean getRightTriggerOperator(){
+    return operator.whenPressed(RightBumperButtonDriver)
+  }
+
+
   // Starts Driver Buttons
   Button xButtonDriver             = new JoystickButton(driver, RobotMap.xButton);
   Button aButtonDriver             = new JoystickButton(driver, RobotMap.aButton);

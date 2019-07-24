@@ -31,7 +31,8 @@ public class Robot extends TimedRobot {
   public static Drivetrain driveTrain = new Drivetrain();
   public static Elevator elevator     = new Elevator();
   public static Wrist wrist           = new Wrist();
-  public static Climber climber               = new Climber();
+  public static Climber climber       = new Climber();
+  public static IntakeManual intake = new IntakeManual();
   public static OI m_oi;
 /*
   Command m_autonomousCommand;
@@ -142,8 +143,4 @@ public class Robot extends TimedRobot {
   public void testPeriodic() {
   }
 }
-
-
-
-
 
