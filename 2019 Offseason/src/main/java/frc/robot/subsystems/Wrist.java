@@ -34,6 +34,20 @@ public class Wrist extends Subsystem {
     wristMaster.setNeutralMode(NeutralMode.Brake);
     wristSlave.setNeutralMode(NeutralMode.Brake);
 
+    //PID
+
+    wristMaster.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, RobotMap.PID_PRIMARY, RobotMap.kTimeoutMs); 
+    wristMaster.setSensorPhase(false); 
+    wristMaster.selectProfileSlot(RobotMap.kSlot_Wrist, RobotMap.PID_PRIMARY);
+    wristMaster.config_kP(RobotMap.kSlot_Wrist, RobotMap.kGains_Wrist.kP, RobotMap.kTimeoutMs); 
+    wristMaster.config_kI(RobotMap.kSlot_Wrist, RobotMap.kGains_Wrist.kI, RobotMap.kTimeoutMs); 
+    wristMaster.config_kD(RobotMap.kSlot_Wrist, RobotMap.kGains_Wrist.kD, RobotMap.kTimeoutMs); 
+    wristMaster.config_kF(RobotMap.kSlot_Wrist, RobotMap.kGains_Wrist.kF, RobotMap.kTimeoutMs); 
+    wristMaster.configMotionAcceleration(RobotMap.kWristAccel, RobotMap.kTimeoutMs);     
+    wristMaster.configMotionCruiseVelocity(RobotMap.kWristVelocity, RobotMap.kTimeoutMs); 
+    wristMaster.setSelectedSensorPosition(0, RobotMap.PID_PRIMARY, RobotMap.kTimeoutMs);
+    
+
   }
   @Override
   public void initDefaultCommand() {
@@ -44,5 +58,15 @@ public class Wrist extends Subsystem {
   public void setWristPower(double power){
     wristMaster.set(ControlMode.PercentOutput, power);
     wristSlave.follow(wristMaster);
+  }
+
+  public void moveToPos(double target){
+    wristMaster.set(ControlMode.MotionMagic,target);
+    wristSlave.follow(wristMaster);
+  }
+
+  public double getAveragePosition(){
+    return ( ( wristMaster.getSelectedSensorPosition() + wristMaster.getSelectedSensorPosition() ) /2);
+
   }
 }

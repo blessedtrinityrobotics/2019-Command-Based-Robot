@@ -37,12 +37,20 @@ public class OI {
     return operator.getRawAxis(axis);
   }
 
-  public boolean getLeftTriggerOperator(){
-    return operator.whenPressed(leftBumperButtonDriver)
+  public boolean getLeftBumperOperator(){
+    return operator.whenPressed(leftBumperButtonOperator)
   }
 
-  public boolean getRightTriggerOperator(){
-    return operator.whenPressed(RightBumperButtonDriver)
+  public boolean getRightBumperOperator(){
+    return operator.whenPressed(rightBumperButtonOperator)
+  }
+
+  public boolean getLeftBumperDriver(){
+    return driver.whenPressed(leftBumperButtonDriver)
+  }
+
+  public boolean getRightBumperDriver(){
+    return driver.whenPressed(RightBumperButtonDriver)
   }
 
 

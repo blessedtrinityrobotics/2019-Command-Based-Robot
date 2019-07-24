@@ -10,17 +10,16 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command; 
 import frc.robot.Robot;
 import frc.robot.RobotMap;
-import frc.robot.subsystems.Intake;
-import frc.robot.OI; 
-import edu.wpi.first.wpilibj.XboxController;
-import edu.wpi.first.wpilibj.buttons.Button;
-import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import frc.robot.subsystem.Wrist;
+import frc.robot.Robot.Oi;
 
-public class IntakeManual extends Command {
-  public IntakeManual() {
-    // test comment
+
+public class WristManual extends Command {
+  double targetPos;
+  public WristManual(double target) {
+      targetPos = target;
     // Use requires() here to declare subsystem dependencies
-    requires(Robot.intake);
+    requires(Robot.wrist);
   }
 
   // Called just before this Command runs the first time
@@ -32,23 +31,19 @@ public class IntakeManual extends Command {
   @Override
   protected void execute() {
 
-  boolean leftBumperDriver =  Robot.m_oi.getLeftBumperDriver();
-  boolean rightBumperDriver = Robot.m_oi.getRightBumperDriver();
+    boolean leftBumperOperator =  Robot.m_oi.getLeftBumperOperator();
+    boolean rightBumperOrerator = Robot.m_oi.getRightBumperOperator();
 
-  if(leftTriggerOperator==true)
-  {
-    Robot.intake.setIntakePower(.5);
-  }
+        if(leftBumperOperator == true)
+        {
+            targetPos = TravelWrist;
+        }
 
-  else if(rightTriggerOperator==true)
-  {
-    Robot.intake.setIntakePower(-.5);
-  }
-  else
-  {
-    Robot.intake.setIntakePower(0.0);
-  }
-
+        else if(rightBumperOrerator == true)
+        {
+            targetPos = CargoWrist;
+        }
+    Robot.wrist.moveToPos(targetPos);
   }
   
 
@@ -61,13 +56,14 @@ public class IntakeManual extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-   
+  Robot.wrist.moveToPos(targetPos);
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-    robot.intake.setIntakePower(0.0)
+    Robot.wrist.setElevLeft(0.0);
+    Robot.wrist.setElevRight(0.0);
   }
 }
