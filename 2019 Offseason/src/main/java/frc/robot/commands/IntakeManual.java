@@ -35,19 +35,19 @@ public class IntakeManual extends Command {
   boolean leftBumperDriver =  Robot.m_oi.getLeftBumperDriver();
   boolean rightBumperDriver = Robot.m_oi.getRightBumperDriver();
 
-  if(leftTriggerOperator==true)
-  {
-    Robot.intake.setIntakePower(.5);
-  }
+    if(leftTriggerOperator==true)
+    {
+      Robot.intake.setIntakePower(.5);
+    }
 
-  else if(rightTriggerOperator==true)
-  {
-    Robot.intake.setIntakePower(-.5);
-  }
-  else
-  {
-    Robot.intake.setIntakePower(0.0);
-  }
+    else if(rightTriggerOperator==true)
+    {
+      Robot.intake.setIntakePower(-.5);
+    }
+    else
+    {
+      Robot.intake.setIntakePower(0.0);
+    }
 
   }
   

@@ -43,6 +43,7 @@ public class WristManual extends Command {
         {
             targetPos = CargoWrist;
         }
+        
     Robot.wrist.moveToPos(targetPos);
   }
   
