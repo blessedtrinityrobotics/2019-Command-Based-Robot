@@ -14,6 +14,8 @@ import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.Elevator;
 import frc.robot.subsystems.Wrist;
 import frc.robot.subsystems.Intake;
+import fr.robot.commands.autonomousCommand;
+
 //import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 // import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -114,8 +116,16 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void autonomousPeriodic() {
-    Scheduler.getInstance().run();
-  }
+    switch (m_autoSelected) {
+      case kCustomAuto:
+        // Put custom auto code here 
+        break;
+      case kDefaultAuto:
+      default:
+        // Put default auto code here
+        new autonomousCommand();
+        break;
+      }
 
   @Override
   public void teleopInit() {

@@ -33,8 +33,12 @@ public class Drivetrain extends Subsystem {
   public double initGyroAngle;
   public double finalGyroAngle;
 
+  public double encoderPos;
 
-  public Drivetrain(){
+  public Drivetrain(double pos){
+
+    encoderPos = pos;
+
     masterLeft.setInverted(false);
     slaveLeft1.setInverted(false);
     slaveLeft2.setInverted(false);
@@ -74,6 +78,18 @@ public class Drivetrain extends Subsystem {
     slaveRight1.follow(masterRight);
     slaveRight2.follow(masterRight);
   }
+
+
+  public void moveToPos(double pos){
+    masterLeft.set(ControlMode.Position, pos);
+    slaveLeft1.follow(masterLeft);
+    slaveLeft2.follow(masterLeft);
+
+    masterLeft.set(ControlMode.Position, pos);
+    slaveLeft1.follow(masterLeft);
+    slaveLeft2.follow(masterLeft);
+  }
+
 
   // Sets gyro to 0 degrees
   public void resetGyro(){

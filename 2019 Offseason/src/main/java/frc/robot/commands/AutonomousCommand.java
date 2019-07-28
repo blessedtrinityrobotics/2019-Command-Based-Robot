@@ -13,12 +13,11 @@ import frc.robot.commands.WristToPos;
 import frc.robot.RobotMap;
 import frc.robot.commands.IntakeManual;
 
-public class IntakeProcedure extends CommandGroup {
+public class AutonomousCommand extends CommandGroup {
   /**
    * Add your docs here.
    */
-  public IntakeProcedure(double power) {
-    addParallel(new WristToPos(RobotMap.CargoWrist)); // Run Intake
-    addParallel(new IntakeManual(power)); // Run Bottom Rollers on hopper
+  public AutonomousCommand() {
+    addSequential(new TankDriveAuto(RobotMap.FirstEncoderPosition)); //Run The Robot Forward
   }
 }

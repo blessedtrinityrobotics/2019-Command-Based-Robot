@@ -69,6 +69,8 @@ public class RobotMap {
   public static final double TravelWrist  = 200;
   public static final double CargoWrist   = 300;
 
+  public static final double FirstEncoderPosition = 100;
+
 // End of Ports
 
 // PID/Motion Magic Constants
