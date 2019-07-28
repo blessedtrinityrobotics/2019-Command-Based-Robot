@@ -9,15 +9,14 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
-import frc.robot.commands.WristToPos;
 import frc.robot.RobotMap;
-import frc.robot.commands.IntakeManual;
+import frc.robot.commands.MoveToPos;
 
 public class AutonomousCommand extends CommandGroup {
   /**
    * Add your docs here.
    */
   public AutonomousCommand() {
-    addSequential(new TankDriveAuto(RobotMap.FirstEncoderPosition)); //Run The Robot Forward
-  }
+    addSequential(new MoveToPos(RobotMap.FirstEncoderPosition));
+    
 }
