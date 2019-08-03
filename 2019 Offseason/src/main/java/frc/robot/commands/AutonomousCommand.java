@@ -19,5 +19,6 @@ public class AutonomousCommand extends CommandGroup {
    */
   public AutonomousCommand() {
     addSequential(new TankDriveAuto(RobotMap.FirstEncoderPosition)); //Run The Robot Forward
+    addSequential(new IntakeProcedure()); // Move the Elevator to the position for the Cargo
   }
 }
