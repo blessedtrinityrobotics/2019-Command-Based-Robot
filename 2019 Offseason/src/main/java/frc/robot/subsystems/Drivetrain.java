@@ -35,9 +35,7 @@ public class Drivetrain extends Subsystem {
 
   public double encoderPos;
 
-  public Drivetrain(double pos){
-
-    encoderPos = pos;
+  public Drivetrain(){
 
     masterLeft.setInverted(false);
     slaveLeft1.setInverted(false);
@@ -112,6 +110,10 @@ public class Drivetrain extends Subsystem {
    */
   public double getGyroRate(){
     return onboardGyro.getRate();
+  }
+
+  public double getAvgPosition(){
+    return ( (masterLeft.getSelectedSensorPosition() + masterRight.getSelectedSensorPosition() )/2 );
   }
 
 }
