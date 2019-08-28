@@ -39,7 +39,7 @@ public class Wrist extends Subsystem {
     //PID
 
     wristMaster.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Absolute, RobotMap.PID_PRIMARY, RobotMap.kTimeoutMs); 
-    wristMaster.setSensorPhase(false); 
+    wristMaster.setSensorPhase(true); 
     wristMaster.selectProfileSlot(RobotMap.kSlot_Wrist, RobotMap.PID_PRIMARY);
     wristMaster.config_kP(RobotMap.kSlot_Wrist, RobotMap.kGains_Wrist.kP, RobotMap.kTimeoutMs); 
     wristMaster.config_kI(RobotMap.kSlot_Wrist, RobotMap.kGains_Wrist.kI, RobotMap.kTimeoutMs); 
@@ -54,7 +54,7 @@ public class Wrist extends Subsystem {
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
-    setDefaultCommand(new WristManual());
+    //setDefaultCommand(new WristManual());
   }
 
   public void setWristPower(double power){
