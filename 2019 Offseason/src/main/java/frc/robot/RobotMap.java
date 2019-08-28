@@ -66,8 +66,8 @@ public class RobotMap {
   public static final double MidElev = 5000;
   public static final double TopElev = 10000;
 
-  public static final double TravelWrist  = 200;
-  public static final double CargoWrist   = 300;
+  public static final double TravelWrist  = -200;
+  public static final double CargoWrist   = -2500;
 
   public static final double FirstEncoderPosition = 100;
 

@@ -16,6 +16,7 @@ import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 import frc.robot.commands.WristManual;
+import frc.robot.commands.WristToPos;
 
 
 /**
@@ -37,7 +38,7 @@ public class Wrist extends Subsystem {
 
     //PID
 
-    wristMaster.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, RobotMap.PID_PRIMARY, RobotMap.kTimeoutMs); 
+    wristMaster.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Absolute, RobotMap.PID_PRIMARY, RobotMap.kTimeoutMs); 
     wristMaster.setSensorPhase(false); 
     wristMaster.selectProfileSlot(RobotMap.kSlot_Wrist, RobotMap.PID_PRIMARY);
     wristMaster.config_kP(RobotMap.kSlot_Wrist, RobotMap.kGains_Wrist.kP, RobotMap.kTimeoutMs); 
@@ -62,12 +63,12 @@ public class Wrist extends Subsystem {
   }
 
   public void moveToPos(double target){
-    wristMaster.set(ControlMode.MotionMagic,target);
+    wristMaster.set(ControlMode.MotionMagic, -target);
     wristSlave.follow(wristMaster);
   }
 
   public double getAveragePosition(){
-    return ( ( wristMaster.getSelectedSensorPosition() + wristMaster.getSelectedSensorPosition() ) /2);
+    return (wristMaster.getSelectedSensorPosition());
 
   }
 }

@@ -79,8 +79,12 @@ public class OI {
     rightBumperButtonOperator.whenPressed(new WristToPos(RobotMap.TravelWrist)); // Travelling Wrist
 
     //Intake for Intake
-    startButtonOperator.whenPressed(new IntakeProcedure(.5)); //Move Wrist Up and Intake the Ball
-    rightBumperButtonDriver.whenPressed(new IntakeManual(-.5)); //Intake Speed -
+    //startButtonOperator.whenPressed(new IntakeProcedure(.5)); //Move Wrist Up and Intake the Ball
+    //rightBumperButtonDriver.whenPressed(new IntakeManual(-.5)); //Intake Speed -
+
+    //Intake
+    startButtonOperator.whileHeld(new IntakeManual(0.5));
+    backButtonOperator.whileHeld(new IntakeManual(-0.5));
   
   }
 

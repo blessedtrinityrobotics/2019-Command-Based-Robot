@@ -89,7 +89,7 @@ public class Elevator extends Subsystem {
   }
 
   public void moveToPos(double target){
-    elevLeftMaster.set(ControlMode.MotionMagic, target);  // Need to confirm direction (from old code)
+    elevLeftMaster.set(ControlMode.MotionMagic, -target);  // Need to confirm direction (from old code)
     elevLeftSlave.follow(elevLeftMaster);
     elevRightMaster.set(ControlMode.MotionMagic, target); // Need to confirm direction (from old code)
     elevRightSlave.follow(elevRightMaster);
@@ -99,4 +99,7 @@ public class Elevator extends Subsystem {
     return ( ( elevLeftMaster.getSelectedSensorPosition() + elevRightMaster.getSelectedSensorPosition() ) /2);
   }
   
+  public double rightPos(){
+    return elevRightMaster.getSelectedSensorPosition();
+  }
 }

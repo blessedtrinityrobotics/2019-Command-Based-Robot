@@ -37,7 +37,12 @@ public class WristToPos extends Command {
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    double currentPostion = Robot.wrist.getAveragePosition();
+    if( ( currentPostion > targetPos + 100 /* MIN */ ) && ( currentPostion > targetPos - 100 /* MAX */ ) ) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   // Called once after isFinished returns true
