@@ -38,7 +38,7 @@ public class WristToPos extends Command {
   @Override
   protected boolean isFinished() {
     double currentPostion = Robot.wrist.getAveragePosition();
-    if( ( currentPostion > targetPos + 100 /* MIN */ ) && ( currentPostion > targetPos - 100 /* MAX */ ) ) {
+    if( ( currentPostion > targetPos - 100 /* MIN */ ) && ( currentPostion < targetPos + 100 /* MAX */ ) ) {
       return true;
     } else {
       return false;

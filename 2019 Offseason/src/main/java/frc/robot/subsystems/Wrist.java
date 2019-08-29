@@ -63,7 +63,7 @@ public class Wrist extends Subsystem {
   }
 
   public void moveToPos(double target){
-    wristMaster.set(ControlMode.MotionMagic, -target);
+    wristMaster.set(ControlMode.MotionMagic, target);
     wristSlave.follow(wristMaster);
   }
 
