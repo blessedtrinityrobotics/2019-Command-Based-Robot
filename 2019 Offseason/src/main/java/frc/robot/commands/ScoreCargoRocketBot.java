@@ -1,4 +1,3 @@
-    
 /*----------------------------------------------------------------------------*/
 /* Copyright (c) 2018 FIRST. All Rights Reserved.                             */
 /* Open Source Software - may be modified and shared by FRC teams. The code   */
@@ -13,14 +12,13 @@ import frc.robot.commands.MoveElevToPos;
 import frc.robot.commands.WristToPos;
 import frc.robot.RobotMap;
 import frc.robot.commands.IntakeManual;
-
-public class IntakeProcedure extends CommandGroup {
+public class ScoreCargoRocketBot extends CommandGroup {
   /**
    * Add your docs here.
    */
-  public IntakeProcedure() {
-    addParallel(new MoveElevToPos(RobotMap.BotElev));
-    addParallel(new WristToPos(RobotMap.CargoWrist)); // Run Intake
-    addParallel(new IntakeManual(0.5)); // Run Bottom Rollers on hopper
+  public ScoreCargoRocketBot() {
+    addParallel(new MoveElevToPos(RobotMap.LowElev));
+    addParallel(new WristToPos(RobotMap.ScoreCargoRocket)); // Run Intake
+    addParallel(new IntakeManual(-0.5)); // Run Bottom Rollers on hopper
   }
 }

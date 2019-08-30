@@ -13,6 +13,9 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.commands.IntakeManual;
 import frc.robot.commands.IntakeProcedure;
 import frc.robot.commands.MoveElevToPos;
+import frc.robot.commands.ResetMechanism;
+import frc.robot.commands.ScoreCargo;
+import frc.robot.commands.ScoreCargoRocketBot;
 import frc.robot.commands.WristToPos;
 
 /**
@@ -67,7 +70,7 @@ public class OI {
   Button rightStickButtonOperator  = new JoystickButton(operator, RobotMap.rightStickButton);
 
   public OI(){
-
+/*
     // Starts Commands
     aButtonOperator.whenPressed(new MoveElevToPos(RobotMap.BotElev)); // All the way down
     bButtonOperator.whenPressed(new MoveElevToPos(RobotMap.LowElev)); // Low position
@@ -85,7 +88,16 @@ public class OI {
     //Intake
     startButtonOperator.whileHeld(new IntakeManual(0.5));
     backButtonOperator.whileHeld(new IntakeManual(-0.5));
-  
+  */
+
+  // Procedures
+
+  aButtonOperator.whenPressed(new IntakeProcedure());
+  yButtonOperator.whenPressed(new ScoreCargo());
+  bButtonOperator.whenPressed(new ScoreCargoRocketBot());
+  xButtonOperator.whenPressed(new ResetMechanism());
+
+
   }
 
 }
