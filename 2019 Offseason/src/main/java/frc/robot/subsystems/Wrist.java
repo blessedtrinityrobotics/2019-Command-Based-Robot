@@ -54,7 +54,7 @@ public class Wrist extends Subsystem {
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
-    //setDefaultCommand(new WristManual());
+    setDefaultCommand(new WristToPos(RobotMap.TravelWrist));
   }
 
   public void setWristPower(double power){

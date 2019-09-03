@@ -19,6 +19,6 @@ public class ScoreCargoRocketBot extends CommandGroup {
   public ScoreCargoRocketBot() {
     addParallel(new MoveElevToPos(RobotMap.LowElev));
     addParallel(new WristToPos(RobotMap.ScoreCargoRocket)); // Run Intake
-    addSequential(new IntakeManual(-0.5)); // Run Bottom Rollers on hopper
+    //addSequential(new IntakeManual(0.5)); // Run Bottom Rollers on hopper
   }
 }

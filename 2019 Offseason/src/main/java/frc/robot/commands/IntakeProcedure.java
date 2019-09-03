@@ -21,6 +21,6 @@ public class IntakeProcedure extends CommandGroup {
   public IntakeProcedure() {
     addParallel(new MoveElevToPos(RobotMap.BotElev));
     addParallel(new WristToPos(RobotMap.CargoWrist)); // Run Intake
-    addParallel(new IntakeManual(0.5)); // Run Bottom Rollers on hopper
+    addParallel(new IntakeManual(-0.5)); // Run Bottom Rollers on hopper
   }
 }
