@@ -70,7 +70,7 @@ public class RobotMap {
   public static final double TravelWrist  = 500;
   public static final double CargoWrist   = 2500;
   public static final double ScoreCargoRocket   = 300;
-  public static final double climbWrist = 4500;
+  public static final double climbWrist = 4750;
 
   public static final double climberUp = 0;
   public static final double climberDown = -4500;
