@@ -14,6 +14,7 @@ import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
+import frc.robot.commands.ClimberManual;
 import frc.robot.commands.MoveClimberToPos;;
 
 
@@ -50,7 +51,7 @@ public class Climber extends Subsystem {
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
-    setDefaultCommand(new MoveClimberToPos(0.0));
+    //setDefaultCommand(new MoveClimberToPos(0.0));
     
   }
 
@@ -67,7 +68,7 @@ public class Climber extends Subsystem {
   }
 
   public double getAvgPosition(){
-    return ( ( climbMotorMaster.getSelectedSensorPosition() + climbMotorSlave.getSelectedSensorPosition() ) /2);
+    return climbMotorMaster.getSelectedSensorPosition();
   }
  
 }

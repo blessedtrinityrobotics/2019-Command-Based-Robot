@@ -10,8 +10,10 @@ package frc.robot;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import frc.robot.commands.ClimbProcedure;
 import frc.robot.commands.IntakeManual;
 import frc.robot.commands.IntakeProcedure;
+import frc.robot.commands.MoveClimberToPos;
 import frc.robot.commands.MoveElevToPos;
 import frc.robot.commands.ResetMechanism;
 import frc.robot.commands.ScoreCargo;
@@ -97,6 +99,11 @@ public class OI {
   yButtonOperator.whenPressed(new ScoreCargo());
   bButtonOperator.whenPressed(new ScoreCargoRocketBot());
   xButtonOperator.whenPressed(new ResetMechanism());
+  rightBumperButtonDriver.whenPressed(new IntakeManual(0.5));
+
+  //Climber
+  leftBumperButtonOperator.whenPressed(new ClimbProcedure());
+  rightBumperButtonOperator.whenPressed(new MoveClimberToPos(RobotMap.climberDown));
 
 
   }

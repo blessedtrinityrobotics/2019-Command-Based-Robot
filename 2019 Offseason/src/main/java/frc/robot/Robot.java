@@ -150,6 +150,7 @@ public class Robot extends TimedRobot {
     Scheduler.getInstance().run();
     SmartDashboard.putNumber("Elev Pos", Robot.elevator.rightPos());
     SmartDashboard.putNumber("Wrist Pos", Robot.wrist.getAveragePosition());
+    SmartDashboard.putNumber("Climber Pos", Robot.climber.getAvgPosition());
   }
 
   /**

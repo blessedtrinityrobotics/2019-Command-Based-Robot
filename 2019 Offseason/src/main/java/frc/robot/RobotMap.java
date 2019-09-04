@@ -58,17 +58,22 @@ public class RobotMap {
 
   public static final int INTAKE_MASTER = 14;
 
-  public static final int CLIMB_MOTOR_MASTER = 15;
-  public static final int CLIMB_MOTOR_SLAVE  = 16;  
+  public static final int CLIMB_MOTOR_MASTER = 17;
+  public static final int CLIMB_MOTOR_SLAVE  = 18;  
 
   public static final double BotElev = 0;
   public static final double LowElev = 1000;
   public static final double MidElev = 5000;
+  public static final double ClimbElev  = 7000;
   public static final double TopElev = 10000;
 
   public static final double TravelWrist  = 500;
   public static final double CargoWrist   = 2500;
   public static final double ScoreCargoRocket   = 300;
+  public static final double climbWrist = 4500;
+
+  public static final double climberUp = 0;
+  public static final double climberDown = -4500;
 
   public static final double FirstEncoderPosition = 100;
 
@@ -104,7 +109,7 @@ public class RobotMap {
   public final static Gains kGains_Drive  = new Gains( 0.0, 0.0,  0.0, 0.0,                  100,  0.50 );
   public final static Gains kGains_Elev   = new Gains( 1.5, 0.0,  0.0, 1023/kElevSensorVel,  100,  0.50 );
   public final static Gains kGains_Wrist  = new Gains( 2.5, 0.0,  0.0, 1023/kWristSensorVel, 100,  0.50 );
-  public final static Gains kGains_Climb  = new Gains( 0.0, 0.0,  0.0, 1023/kClimbSensorVel, 100,  0.50 );
+  public final static Gains kGains_Climb  = new Gains( 1.5, 0.0,  0.0, 1023/kClimbSensorVel, 100,  0.50 );
 
   /** ---- Flat constants, you should not need to change these ---- */
   /* We allow either a 0 or 1 when selecting an ordinal for remote devices [You can have up to 2 devices assigned remotely to a talon/victor] */
