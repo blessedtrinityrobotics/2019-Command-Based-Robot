@@ -11,6 +11,7 @@ import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.RobotMap;
+import frc.robot.commands.ValidTarget;
 
 /**
  * Add your docs here.
@@ -26,7 +27,7 @@ public class Limelight extends Subsystem {
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
-    //setDefaultCommand(new MySpecialCommand());
+    setDefaultCommand(new ValidTarget());
   }
 
   public boolean IsTarget(){

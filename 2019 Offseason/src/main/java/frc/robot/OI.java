@@ -102,7 +102,6 @@ public class OI {
   xButtonOperator.whenPressed(new ResetMechanism());
   rightBumperButtonDriver.whenPressed(new IntakeManual(0.5));
   
-
   // Climber
   leftBumperButtonOperator.whenPressed(new ClimbProcedure());
   rightBumperButtonOperator.whenPressed(new MoveClimberToPos(RobotMap.climberDown));
@@ -111,6 +110,7 @@ public class OI {
 
   // Limelight
   xButtonDriver.whenPressed(new ToggleLight());
+  
   }
 
 }
