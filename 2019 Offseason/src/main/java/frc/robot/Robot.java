@@ -14,7 +14,7 @@ import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.Elevator;
 import frc.robot.subsystems.Wrist;
 import frc.robot.subsystems.Intake;
-
+import frc.robot.subsystems.Limelight;
 //import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 // import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -37,6 +37,7 @@ public class Robot extends TimedRobot {
   public static Wrist wrist           = new Wrist();
   public static Climber climber       = new Climber();
   public static Intake intake         = new Intake();
+  public static Limelight limelight   = new Limelight();
   public static OI m_oi;
 /*
   Command m_autonomousCommand;

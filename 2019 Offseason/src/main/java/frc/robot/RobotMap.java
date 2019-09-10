@@ -70,7 +70,7 @@ public class RobotMap {
   public static final double TravelWrist  = 500;
   public static final double CargoWrist   = 2500;
   public static final double ScoreCargoRocket   = 300;
-  public static final double climbWrist = 4750;
+  public static final double climbWrist = 4550;
 
   public static final double climberUp = 0;
   public static final double climberDown = -4500;
@@ -108,7 +108,7 @@ public class RobotMap {
   *                                 	                 kP   kI    kD   kF                    Iz    PeakOut */
   public final static Gains kGains_Drive  = new Gains( 0.0, 0.0,  0.0, 0.0,                  100,  0.50 );
   public final static Gains kGains_Elev   = new Gains( 1.5, 0.0,  0.0, 1023/kElevSensorVel,  100,  0.50 );
-  public final static Gains kGains_Wrist  = new Gains( 2.5, 0.0,  0.0, 1023/kWristSensorVel, 100,  0.50 );
+  public final static Gains kGains_Wrist  = new Gains( 2.65, 0.0,  0.0, 1023/kWristSensorVel, 100,  0.50 );
   public final static Gains kGains_Climb  = new Gains( 1.5, 0.0,  0.0, 1023/kClimbSensorVel, 100,  0.50 );
 
   /** ---- Flat constants, you should not need to change these ---- */
@@ -125,6 +125,7 @@ public class RobotMap {
   public final static int kSlot_Elev  = 1;
   public final static int kSlot_Wrist = 1;
   public final static int kSlot_Climb = 1;
+
 
 // End of PID/Motion Magic Constants
 }

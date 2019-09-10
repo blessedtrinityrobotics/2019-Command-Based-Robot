@@ -8,21 +8,18 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
-
 import frc.robot.commands.MoveElevToPos;
 import frc.robot.commands.WristToPos;
-import frc.robot.commands.MoveClimberToPos;
-import frc.robot.Robot;
+//import frc.robot.commands.MoveClimberToPos;
+//import frc.robot.Robot;
 import frc.robot.RobotMap;
 
-
-public class ClimbProcedure extends CommandGroup {
+public class PushRobotOnHab extends CommandGroup {
   /**
    * Add your docs here.
    */
-  public ClimbProcedure() {
-    //addParallel(new MoveClimberToPos(RobotMap.climberUp));
-    addParallel(new MoveElevToPos(RobotMap.ClimbElev));
+  public PushRobotOnHab() {
+    addParallel(new MoveElevToPos(RobotMap.LowElev));
     addParallel(new WristToPos(RobotMap.climbWrist));
   }
 }

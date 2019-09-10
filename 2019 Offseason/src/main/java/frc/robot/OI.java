@@ -15,9 +15,11 @@ import frc.robot.commands.IntakeManual;
 import frc.robot.commands.IntakeProcedure;
 import frc.robot.commands.MoveClimberToPos;
 import frc.robot.commands.MoveElevToPos;
+import frc.robot.commands.PushRobotOnHab;
 import frc.robot.commands.ResetMechanism;
 import frc.robot.commands.ScoreCargo;
 import frc.robot.commands.ScoreCargoRocketBot;
+import frc.robot.commands.ToggleLight;
 import frc.robot.commands.WristToPos;
 
 /**
@@ -94,18 +96,21 @@ public class OI {
   
 
   // Procedures
-
   aButtonOperator.whenPressed(new IntakeProcedure());
   yButtonOperator.whenPressed(new ScoreCargo());
   bButtonOperator.whenPressed(new ScoreCargoRocketBot());
   xButtonOperator.whenPressed(new ResetMechanism());
   rightBumperButtonDriver.whenPressed(new IntakeManual(0.5));
+  
 
-  //Climber
+  // Climber
   leftBumperButtonOperator.whenPressed(new ClimbProcedure());
   rightBumperButtonOperator.whenPressed(new MoveClimberToPos(RobotMap.climberDown));
+  
+  backButtonOperator.whenPressed(new PushRobotOnHab());
 
-
+  // Limelight
+  xButtonDriver.whenPressed(new ToggleLight());
   }
 
 }
