@@ -10,6 +10,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import frc.robot.commands.ApproachTarget;
 import frc.robot.commands.ClimbProcedure;
 import frc.robot.commands.IntakeManual;
 import frc.robot.commands.IntakeProcedure;
@@ -110,6 +111,7 @@ public class OI {
 
   // Limelight
   xButtonDriver.whenPressed(new ToggleLight());
+  aButtonDriver.whileActive(new ApproachTarget());
   
   }
 
