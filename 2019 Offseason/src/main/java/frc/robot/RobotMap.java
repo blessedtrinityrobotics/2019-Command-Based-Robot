@@ -68,7 +68,7 @@ public class RobotMap {
   public static final double TopElev = 10000;
 
   public static final double TravelWrist  = 500;
-  public static final double CargoWrist   = 2500;
+  public static final double CargoWrist   = 2750;
   public static final double ScoreCargoRocket   = 300;
   public static final double climbWrist = 4550;
 
