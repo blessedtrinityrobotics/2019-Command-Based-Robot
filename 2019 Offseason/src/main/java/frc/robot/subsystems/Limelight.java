@@ -44,7 +44,7 @@ public class Limelight extends Subsystem {
   public void approachTargetWithVision() {
     final double STEER_P = 0.005;//0.025;                    
     final double DRIVE_P = 0.05;//0.2;                     
-    final double DESIRED_TARGET_AREA = 3.75;         // Area of the target when the robot reaches the wall
+    final double DESIRED_TARGET_AREA = .35;         // Area of the target when the robot reaches the wall
     final double MAX_DRIVE = 0.5;                   // Simple speed limit so we don't drive too fast
     final double STEER_I = 0.005;
     final double DRIVE_I = 0.0;
@@ -67,6 +67,7 @@ public class Limelight extends Subsystem {
     STEER_DERIVATIVE = (xError - STEER_ERROR_PRIOR)/0.02;
     SmartDashboard.putNumber("Integral", STEER_INTEGRAL);
     SmartDashboard.putNumber("Derivative", STEER_DERIVATIVE);
+    SmartDashboard.putNumber("TA", ta);
 
 
     if (tv < 1.0) {
