@@ -42,16 +42,17 @@ public class Limelight extends Subsystem {
    * based on the tracking data from a limelight camera.
   */
   public void approachTargetWithVision() {
-    final double STEER_P = 0.005;//0.025;                    
-    final double DRIVE_P = 0.05;//0.2;                     
-    final double DESIRED_TARGET_AREA = .35;         // Area of the target when the robot reaches the wall
-    final double MAX_DRIVE = 0.5;                   // Simple speed limit so we don't drive too fast
+    final double STEER_P = 0.005;                    
+    final double DRIVE_P = 0.05;                     
+    final double DESIRED_TARGET_AREA = 4;         // Area of the target when the robot reaches the wall
+    final double MAX_DRIVE = 0.75;                   // Simple speed limit so we don't drive too fast
     final double STEER_I = 0.005;
     final double DRIVE_I = 0.0;
-    final double STEER_D = 0.025;
+    final double STEER_D = 0.02;
     final double xError;
     final double aError;
     double DRIVE_INTEGRAL = 0;
+
     
 
     double tv = NetworkTableInstance.getDefault().getTable("limelight").getEntry("tv").getDouble(0);
@@ -92,6 +93,11 @@ public class Limelight extends Subsystem {
 
     STEER_ERROR_PRIOR = xError;
 
+  }
+
+  public void clearVars(){
+    STEER_INTEGRAL = 0;
+    STEER_DERIVATIVE = 0;
   }
 
 

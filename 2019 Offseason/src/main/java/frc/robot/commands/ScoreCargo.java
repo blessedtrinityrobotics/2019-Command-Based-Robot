@@ -18,7 +18,7 @@ public class ScoreCargo extends CommandGroup {
    */
   public ScoreCargo() {
     addParallel(new MoveElevToPos(RobotMap.MidElev));
-    addParallel(new WristToPos(RobotMap.TravelWrist)); 
+    addParallel(new WristToPos(RobotMap.cragoShip)); 
     //addSequential(new IntakeManual(0.75)); // Run Bottom Rollers on hopper
   }
 }

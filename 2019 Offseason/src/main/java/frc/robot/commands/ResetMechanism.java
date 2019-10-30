@@ -20,5 +20,8 @@ public class ResetMechanism extends CommandGroup {
   public ResetMechanism() {
     addParallel(new MoveElevToPos(RobotMap.BotElev));
     addParallel(new WristToPos(RobotMap.TravelWrist)); // Run Intake
+    addParallel(new IntakeManual(-0.15));
+    
+
   }
 }

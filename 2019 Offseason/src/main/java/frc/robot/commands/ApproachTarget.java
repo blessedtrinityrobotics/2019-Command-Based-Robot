@@ -28,6 +28,7 @@ public class ApproachTarget extends Command {
     if(Robot.limelight.LEDStatus == false){
       
     }
+    Robot.limelight.clearVars();
     Robot.limelight.approachTargetWithVision();
   }
 
