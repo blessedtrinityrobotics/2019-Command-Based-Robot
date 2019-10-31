@@ -119,6 +119,11 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void autonomousPeriodic() {
+    
+    Scheduler.getInstance().run();
+    SmartDashboard.putNumber("Elev Pos", Robot.elevator.rightPos());
+    SmartDashboard.putNumber("Wrist Pos", Robot.wrist.getAveragePosition());
+    SmartDashboard.putNumber("Climber Pos", Robot.climber.getAvgPosition());
     /*
     switch (m_autoSelected) {
       case kCustomAuto:
