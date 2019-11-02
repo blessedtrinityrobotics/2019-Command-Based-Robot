@@ -47,6 +47,15 @@ public class OI {
   public double getAxisOperator(int axis){
     return operator.getRawAxis(axis);
   }
+  
+
+  public double applyDeadband(int axis){
+    if(Math.abs(driver.getRawAxis(axis)) < 0.1){
+      return 0;
+    } else {
+      return driver.getRawAxis(axis);
+    }
+  }
 
 
 

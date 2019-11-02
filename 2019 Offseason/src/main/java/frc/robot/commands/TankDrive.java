@@ -28,8 +28,8 @@ public class TankDrive extends Command {
   protected void execute() {
     //Get All Axis Values
     //double leftStickY = Robot.m_oi.getAxis(RobotMap.leftStickY);
-    double rightStickY = Robot.m_oi.getAxis(RobotMap.RIGHT_STICK_Y);
-    double leftStickX = Robot.m_oi.getAxis(RobotMap.LEFT_STICK_X);
+    double rightStickY = Robot.m_oi.applyDeadband(RobotMap.RIGHT_STICK_Y);
+    double leftStickX = Robot.m_oi.applyDeadband(RobotMap.LEFT_STICK_X);
     //double rightStickX = Robot.m_oi.getDriverRawAxis(RobotMap.RIGHT_STICK_X);
     double leftTrigger = Robot.m_oi.getAxis(RobotMap.LEFT_TRIGGER_AXIS);
     double rightTrigger = Robot.m_oi.getAxis(RobotMap.RIGHT_TRIGGER_AXIS);
